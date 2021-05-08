@@ -1,0 +1,13 @@
+{
+  "name": "birthday_reminder",
+  "version": "1.0.0",
+  "description": "Birthday reminder",
+  "author": "Gerda Szabo <gerda.szabo.mail@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
