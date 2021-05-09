@@ -16,5 +16,5 @@ print(jsonString)
 
 default = ifcfg.default_interface()
 
-with open('homestackapi.json', "w") as outfile:
+with open('picoordinator.json', "w") as outfile:
     outfile.write(jsonString)
