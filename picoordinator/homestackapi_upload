@@ -1,0 +1,28 @@
+#!/bin/sh
+HOST='files.000webhost.com'
+USER='homestackapi'
+PASSWD='Lacika21.'
+HOMESTACKAPI_FILE='homestackapi.json'
+PUBLICREDIRECT_LOCATION='/home/pi/hs/publicredirect'
+PUBLICREDIRECT_FILE='index.php'
+APISERVER_LOCATION='/home/pi/hs/apiserver'
+APISERVER_FILE='apiserver.php'
+DOWNLOAD_FILE='requests.json'
+
+python3 /home/pi/hs/homestackapi/homestackapi_upload.py
+ftp -n $HOST <<EOF
+quote USER $USER
+quote PASS $PASSWD
+cd public_html
+binary
+put $HOMESTACKAPI_FILE
+lcd $PUBLICREDIRECT_LOCATION
+put $PUBLICREDIRECT_FILE
+lcd $APISERVER_LOCATION
+put $APISERVER_FILE
+lcd /home/pi
+cd ../logs
+get requests.json
+quit
+EOF
+exit 0
