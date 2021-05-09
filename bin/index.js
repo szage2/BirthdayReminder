@@ -1,4 +1,4 @@
-require("http");
+var http = require("http");
 
 http.createServer(function (request, response) {
 // Send the HTTP header
