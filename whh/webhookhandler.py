@@ -1,5 +1,5 @@
 import inotify.adapters
-import python-git
+import git
 import docker
 
 def _main():
