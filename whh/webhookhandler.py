@@ -13,9 +13,12 @@ def _main():
         repo = git.Repo("/home/pi/BirthdayReminder")
         o = repo.remotes.origin
         o.pull()
+
         dockerClient = docker.from_env()
-        birthdayReminderImage = dockerClient.images.build("/home/pi/BirthdayReminder",tag="birthdayreminder")
-        dockerClient.containers.run(birthdayReminderImage, detach=True, port="8081:8081", name="birthdayreminder")
+        dockerClient.containers.get("birthdayreminder").stop()
+        dockerClient.containers.get("birthdayreminder").remove()
+        dockerClient.images.build(path="/home/pi/BirthdayReminder",tag="birthdayreminder")
+        dockerClient.containers.run(image="birthdayreminder", detach=True, ports={"8081":"8081"}, name="birthdayreminder")
 
 if __name__ == '__main__':
     _main()
