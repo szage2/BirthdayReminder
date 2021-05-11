@@ -29,7 +29,6 @@ def _main():
                 dockerclient.containers.prune()
         except Exception as e:
             print(e)
-            pass
 
 if __name__ == '__main__':
     _main()
