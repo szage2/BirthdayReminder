@@ -23,7 +23,7 @@ def _main():
                 dockerclient.containers.run(image="birthdayreminder", detach=True, ports={"8081":"8081"}, name="birthdayreminder", restart_policy={"Name": "always", "MaximumRetryCount": 5})
                 dockerclient.containers.prune()
         except:
-            print("Error while running whh")
+            pass
 
 if __name__ == '__main__':
     _main()
