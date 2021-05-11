@@ -20,7 +20,7 @@ def _main():
                     oldbirthdayreminder = dockerclient.containers.get("birthdayreminder")
                 except:
                     pass
-                if (oldbirthdayreminder):
+                if ('oldbirthdayreminder' in locals()):
                     oldbirthdayreminder.stop()
                     oldbirthdayreminder.remove()
                 dockerclient.images.build(path="/home/pi/BirthdayReminder",tag="birthdayreminder")
