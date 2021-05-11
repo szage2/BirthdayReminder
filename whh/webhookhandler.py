@@ -20,7 +20,7 @@ def _main():
                     oldbirthdayreminder = dockerclient.containers.get("birthdayreminder")
                 except Exception as e:
                     print(e)
-                    pass
+
                 if ('oldbirthdayreminder' in locals()):
                     oldbirthdayreminder.stop()
                     oldbirthdayreminder.remove()
