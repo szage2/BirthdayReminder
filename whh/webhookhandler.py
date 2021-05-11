@@ -24,7 +24,7 @@ def _main():
                     oldbirthdayreminder.stop()
                     oldbirthdayreminder.remove()
                 dockerclient.images.build(path="/home/pi/BirthdayReminder",tag="birthdayreminder")
-                dockerclient.containers.run(image="birthdayreminder", detach=True, ports={"8081":"8081"}, name="birthdayreminder", restart_policy={"Name": "always", "MaximumRetryCount": 5})
+                dockerclient.containers.run(image="birthdayreminder", detach=True, ports={"8081":"8081"}, name="birthdayreminder", restart_policy={"Name": "always"})
                 dockerclient.containers.prune()
         except Exception as e:
             print(e)
