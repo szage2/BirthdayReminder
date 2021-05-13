@@ -2,7 +2,7 @@
 Description=GitHub webhook handling script
 
 [Service]
-WorkingDirectory=/home/pi/hs/whh/
+WorkingDirectory=/home/pi/BirthdayReminder/whh/
 ExecStart=python3 webhookhandler.py
 Restart=always
 StandardOutput=syslog
