@@ -1,0 +1,14 @@
+[Unit]
+Description=GitHub webhook handling script
+
+[Service]
+WorkingDirectory=/home/pi/hs/whh/
+ExecStart=python3 webhookhandler.py
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=propanel
+User=root
+Group=root
+[Install]
+WantedBy=multi-user.target
