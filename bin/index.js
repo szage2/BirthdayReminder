@@ -1,5 +1,5 @@
-var http = "";
-var fs = "";
+var http;
+var fs;
 try {
   http = require("http");
   fs = require("fs");
