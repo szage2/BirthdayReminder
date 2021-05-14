@@ -1,5 +1,5 @@
 var http = require("http");
-var fs = require('fs');
+var fs = require("fs");
 
 http.createServer(function (request, response) {
   // Read index.html file and return the content
