@@ -1,4 +1,5 @@
 var http = require("http");
+var fs = require('fs');
 
 http.createServer(function (request, response) {
   // Read index.html file and return the content
@@ -6,7 +7,8 @@ http.createServer(function (request, response) {
     // Send the HTTP header
     // HTTP Status: 200 : OK
     // Content Type: text/plain
-            response.writeHead(200, {'Content-Type': 'text/plain'});
+            response.writeHead(200, {'Content-Type': 'text/html'});
+            response.write(data);
             // Send the response body as "Hello World"
             response.end('Read html file...\n');
   });
