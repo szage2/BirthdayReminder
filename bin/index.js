@@ -1,6 +1,13 @@
-var http = require("http");
-var fs = require("fs");
-
+var http = "";
+var fs = "";
+try {
+  http = require("http");
+  fs = require("fs");
+}
+catch (e) {
+ console.log('oh no big error')
+ console.log(e)
+}
 http.createServer(function (req, res) {
   // Read index.html file and return the content
   fs.readFile('index.html', function(err, data) {
