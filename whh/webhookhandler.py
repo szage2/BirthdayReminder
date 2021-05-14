@@ -24,7 +24,7 @@ def _main():
                 oldbirthdayreminder.stop()
                 oldbirthdayreminder.remove()
             dockerclient.images.build(path="/home/pi/BirthdayReminder",tag="birthdayreminder")
-            dockerclient.containers.run(image="birthdayreminder", detach=True, ports={"8081":"8081"}, name="birthdayreminder", restart_policy={"Name": "always"})
+            dockerclient.containers.run(image="birthdayreminder", detach=True, ports={"8081":"8081","9229":"9229"}, name="birthdayreminder", restart_policy={"Name": "always"})
             dockerclient.containers.prune()
 
 if __name__ == '__main__':
