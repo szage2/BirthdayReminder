@@ -16,9 +16,16 @@ def _main():
 
             dockerclient = docker.from_env()
 
-            if (oldbirthdayreminder = dockerclient.containers.get("birthdayreminder")):
-                oldbirthdayreminder.stop()
-                oldbirthdayreminder.remove()
+            try:
+                oldbirthdayreminder = dockerclient.containers.get("birthdayreminder")
+            except docker.errors.NotFound:
+                dockerclient.images.build(path="/home/pi/BirthdayReminder",tag="birthdayreminder")
+                dockerclient.containers.run(image="birthdayreminder", detach=True, ports={"8081":"8081","9229":"9229"}, name="birthdayreminder", restart_policy={"Name": "always"})
+                dockerclient.containers.prune()
+                continue
+
+            oldbirthdayreminder.stop()
+            oldbirthdayreminder.remove()
             dockerclient.images.build(path="/home/pi/BirthdayReminder",tag="birthdayreminder")
             dockerclient.containers.run(image="birthdayreminder", detach=True, ports={"8081":"8081","9229":"9229"}, name="birthdayreminder", restart_policy={"Name": "always"})
             dockerclient.containers.prune()
