@@ -14,12 +14,8 @@ def _main():
         o.pull()
 
         dockerclient = docker.from_env()
-        try:
-            oldbirthdayreminder = dockerclient.containers.get("birthdayreminder")
-        except Exception as e:
-            print(e)
 
-        if ('oldbirthdayreminder' in locals()):
+        if (oldbirthdayreminder = dockerclient.containers.get("birthdayreminder")):
             oldbirthdayreminder.stop()
             oldbirthdayreminder.remove()
         dockerclient.images.build(path="/home/pi/BirthdayReminder",tag="birthdayreminder")
