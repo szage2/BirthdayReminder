@@ -1,7 +1,7 @@
 var http = require("http");
 var fs = require("fs");
-var express = require('express');
-var app = express();
+//var express = require('express');
+//var app = express();
 
 http.createServer(function (req, res) {
   // Read index.html file and return the content
@@ -14,8 +14,14 @@ http.createServer(function (req, res) {
             res.end();
   });
 
+  fs.readFile('style/index.css', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/css'});
+    res.write(data);
+    res.end();
+  });
+
 }).listen(8081);
 // Console will print the message
 console.log('Server running at http://127.0.0.1:8081/');
 
-app.use('/style',express.static(__dirname + '/style'));
+//app.use('/style',express.static(__dirname + '/style'));
