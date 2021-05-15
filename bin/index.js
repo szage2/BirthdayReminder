@@ -4,6 +4,7 @@ var express = require('express');
 var serveStatic = require('serve-static')
 var app = express();
 app.use(express.static('public'));
+//app.use(serveStatic('public', { 'index': ['default.html', 'default.htm'] }))
 
 http.createServer(function (req, res) {
   // Read index.html file and return the content
