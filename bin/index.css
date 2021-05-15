@@ -1,0 +1,10 @@
+/* This is a Style sheet for index.html */
+
+/* Creating borders to section containers */
+.section_today_container, .section_upcoming_container {
+  border-radius: 25px;
+  border: 1px solid #000000;
+  padding: 20px;
+  width: 250px;
+  height: 140px;
+}
