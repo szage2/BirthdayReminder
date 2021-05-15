@@ -10,6 +10,7 @@
   "dependencies": {
     "http": "0.0.1-security",
     "fs":"0.0.1-security",
-    "express": "4.17.1"
+    "express": "4.17.1",
+    "serve-static": "1.14.1"
   }
 }

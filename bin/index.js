@@ -1,7 +1,9 @@
 var http = require("http");
 var fs = require("fs");
 var express = require('express');
+var serveStatic = require('serve-static')
 var app = express();
+app.use(express.static('public'));
 
 http.createServer(function (req, res) {
   // Read index.html file and return the content
@@ -17,5 +19,3 @@ http.createServer(function (req, res) {
 }).listen(8081);
 // Console will print the message
 console.log('Server running at http://127.0.0.1:8081/');
-
-app.use(express.static('public'));
