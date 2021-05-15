@@ -10,7 +10,6 @@ app.get('/', function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data);
     res.end();
-    console.log('Server running at http://127.0.0.1:8081/');
   });
 });
 
@@ -24,4 +23,10 @@ app.get('/style/index.css', function(req, res) {
     res.end();
     console.log("css file is loaded");
   });
+});
+
+var server = app.listen(8081, function () {
+   var host = server.address().address
+   var port = server.address().port
+   console.log('Server running at http://127.0.0.1:8081/');
 });
