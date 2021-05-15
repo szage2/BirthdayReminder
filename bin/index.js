@@ -1,13 +1,8 @@
-var http = require("http");
-var fs = require("fs");
 var express = require('express');
-var serveStatic = require('serve-static')
+var fs = require("fs");
 var app = express();
-app.use(express.static('public'));
-//app.use(serveStatic('public', { 'index': ['default.html', 'default.htm'] }))
 
-http.createServer(function (req, res) {
-  // Read index.html file and return the content
+app.get('/', function (req, res) {
   fs.readFile('index.html', function(err, data) {
     // Send the HTTP header
     // HTTP Status: 200 : OK
@@ -15,8 +10,18 @@ http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data);
     res.end();
+    console.log('Server running at http://127.0.0.1:8081/');
   });
+});
 
-}).listen(8081);
-// Console will print the message
-console.log('Server running at http://127.0.0.1:8081/');
+app.get('/style/index.css', function(req, res) {
+  fs.readFile('public/style/index.css', function(err, data) {
+    // Send the HTTP header
+    // HTTP Status: 200 : OK
+    // Content Type: text/plain
+    res.writeHead(200, {'Content-Type': 'text/css'});
+    res.write(data);
+    res.end();
+    console.log("css file is loaded");
+  });
+});
