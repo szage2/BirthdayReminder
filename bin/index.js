@@ -19,4 +19,4 @@ http.createServer(function (req, res) {
 // Console will print the message
 console.log('Server running at http://127.0.0.1:8081/');
 
-app.use(express.static('bin'));
+app.use(express.static('style'));
