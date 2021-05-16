@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
   });
 });
 
-app.get('/style/index.css', function(req, res) {
+app.get('/style', function(req, res) {
   fs.readFile('public/style/index.css', function(err, data) {
     // Send the HTTP header
     // HTTP Status: 200 : OK
