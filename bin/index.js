@@ -1,6 +1,7 @@
 var express = require('express');
 var fs = require("fs");
 var app = express();
+app.disable("x-powered-by");
 
 app.get('/', function (req, res) {
   fs.readFile('index.html', function(err, data) {
