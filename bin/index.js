@@ -28,5 +28,5 @@ app.get('/style', function(req, res) {
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
-   console.log('Server running at http://'+host+':'+port);
+   console.log('Server running at '+host+':'+port);
 });
