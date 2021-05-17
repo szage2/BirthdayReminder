@@ -32,5 +32,63 @@
     </div>
   </nav>
 
+  <!--Container for page  -->
+  <div class="container">
+
+    <!--Container for section  -->
+    <div class="message_container">
+      <!-- Rounded switch -->
+      <div class="switch_container">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+          Automatic Message
+        </label>
+      </div>
+      <!-- Message area -->
+      <div class="form-group">
+        <label for="email">Message</label>
+        <textarea name="message" class="form-control" tabindex="4"
+            placeholder="Hi [Name], Happy [Event] to you! Joe" required></textarea>
+      </div>
+      <!-- Paragraph -->
+      <p>Scheduled at 9:00 AM on event's day</p>
+    </div>
+
+    <!--Container for section  -->
+    <div class="notification_container">
+      <!-- Rounded switches -->
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Notifications
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Only favorites
+        </label>
+      </div>
+      <p>Scheduled</p>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          A day before
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Event's day at 8:00 AM
+        </label>
+      </div>
+      <div class="button_container">
+        <button type="button" class="btn btn-default">Save</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
