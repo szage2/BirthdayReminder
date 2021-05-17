@@ -26,7 +26,7 @@ app.get('/style', function(req, res) {
   });
 });
 
-app.get('/', function (req, res) {
+app.get('/events', function (req, res) {
   fs.readFile('events.html', function(err, data) {
     // Send the HTTP header
     // HTTP Status: 200 : OK
