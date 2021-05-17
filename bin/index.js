@@ -26,6 +26,17 @@ app.get('/style', function(req, res) {
   });
 });
 
+app.get('/', function (req, res) {
+  fs.readFile('events.html', function(err, data) {
+    // Send the HTTP header
+    // HTTP Status: 200 : OK
+    // Content Type: text/plain
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(data);
+    res.end();
+  });
+});
+
 app.use('/public', express.static('public'));
 
 var server = app.listen(8081, function () {
