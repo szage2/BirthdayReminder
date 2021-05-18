@@ -3,6 +3,8 @@
 <head>
   <title>Settings</title>
   <meta charset="utf-8">
+  <!-- Add external CSS file -->
+  <link rel="stylesheet" href="settings.css">
   <!-- Responsiveness - mobile-first -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CDN -->
@@ -34,7 +36,6 @@
 
   <!--Container for page  -->
   <div class="container">
-
     <!--Container for section  -->
     <div class="message_container">
       <!-- Rounded switch -->
@@ -42,9 +43,9 @@
         <label class="switch">
           <input type="checkbox">
           <span class="slider round"></span>
-          Automatic Message
         </label>
       </div>
+      <p>Automatic message</p>
       <!-- Message area -->
       <div class="form-group">
         <label for="email">Message</label>
@@ -54,23 +55,23 @@
       <!-- Paragraph -->
       <p>Scheduled at 9:00 AM on event's day</p>
     </div>
-
     <!--Container for section  -->
     <div class="notification_container">
       <!-- Rounded switches -->
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Notifications
+      <div class="switch_container">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
         </label>
       </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Only favorites
+      <p>Notifications</p>
+      <div class="switch_container">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
         </label>
       </div>
+      <p>Only favorites</p>
       <p>Scheduled</p>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
