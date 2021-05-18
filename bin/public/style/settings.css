@@ -58,7 +58,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.switch_container label {
+.form-check label {
   font-weight: normal;
 }
 
