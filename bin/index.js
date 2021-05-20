@@ -37,6 +37,18 @@ app.get('/events', function (req, res) {
   });
 });
 
+app.get('/style', function(req, res) {
+  fs.readFile('public/style/events.css', function(err, data) {
+    // Send the HTTP header
+    // HTTP Status: 200 : OK
+    // Content Type: text/plain
+    res.writeHead(200, {'Content-Type': 'text/css'});
+    res.write(data);
+    res.end();
+    console.log("css file is loaded");
+  });
+});
+
 app.get('/settings', function (req, res) {
   fs.readFile('settings.html', function(err, data) {
     // Send the HTTP header
