@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
   });
 });
 
-app.get('/style', authLimiter, function(req, res) {
+app.get('/style', 5, function(req, res) {
   fs.readFile('public/style/index.css', function(err, data) {
     // Send the HTTP header
     // HTTP Status: 200 : OK
