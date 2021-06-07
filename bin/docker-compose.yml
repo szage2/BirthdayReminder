@@ -1,0 +1,21 @@
+version: '3'
+services:
+    birthdayreminder:
+        image: birthdayreminder:latest
+        container_name: birthdayreminder
+        restart: always
+        ports:
+            - 8081:8081
+            - 9229:9229
+    birthdayreminder:
+        image: phpmyadmin
+        container_name: birthdayreminder_pma
+        restart: always
+        ports:
+            - 8082:80
+    birthdayreminder:
+        image: mariadb
+        container_name: birthdayreminder_db
+        restart: always
+        ports:
+            - 3306:3306
