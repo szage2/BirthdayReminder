@@ -14,7 +14,8 @@ services:
         ports:
             - 8082:80
         environment:
-            MYSQL_DATABASE: birthdayreminder_db
+            PMA_HOST: birthdayreminder_db
+            PMA_PORT: 3306
     birthdayreminder_db:
         image: mariadb
         container_name: birthdayreminder_db
