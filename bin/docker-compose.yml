@@ -7,13 +7,13 @@ services:
         ports:
             - 8081:8081
             - 9229:9229
-    birthdayreminder:
+    birthdayreminder_pma:
         image: phpmyadmin
         container_name: birthdayreminder_pma
         restart: always
         ports:
             - 8082:80
-    birthdayreminder:
+    birthdayreminder_db:
         image: mariadb
         container_name: birthdayreminder_db
         restart: always
