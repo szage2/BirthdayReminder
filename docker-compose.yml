@@ -1,7 +1,8 @@
 version: '3'
 services:
     birthdayreminder:
-        image: birthdayreminder:latest
+        build:
+            dockerfile: Dockerfile
         container_name: birthdayreminder
         restart: always
         ports:
