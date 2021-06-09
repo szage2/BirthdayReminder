@@ -15,7 +15,7 @@ var datetime = new Date();
     console.log(datetime);
 // Get day of the week
 // Sunday - Saturday : 0 - 6
-var dayoftheweek = datetime.getDate();
+var dayoftheweek = datetime.getDay();
 console.log(dayoftheweek);
 
 app.get('/', function (req, res) {
