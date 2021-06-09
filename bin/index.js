@@ -1,6 +1,13 @@
 var express = require('express');
 var fs = require("fs");
 var app = express();
+// Get the mysql service
+var mysql = require('mysql');
+// Get environmental variable
+var bdrhost = process.env.bdr_host;
+var bdruser = process.env.bdr_user;
+var bdrpsw = process.env.bdr_pass;
+
 app.disable("x-powered-by");
 
 app.get('/', function (req, res) {
@@ -78,4 +85,40 @@ var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
    console.log('Server running at '+host+':'+port);
+});
+
+bdr_var.
+
+// Adding credentials to access database
+var connection = mysql.createConnection({
+    host     : bdrhost,
+    user     : bdruser,
+    password : bdrpsw,
+    database : 'birthdayreminder'
+});
+
+// connect to mysql
+connection.connect(function(err) {
+    // in case of error
+    if(err){
+        console.log(err.code);
+        console.log(err.fatal);
+    }
+});
+
+// Perform a query
+$query = 'SELECT * from main LIMIT 10';
+
+connection.query($query, function(err, rows, fields) {
+    if(err){
+        console.log("An error ocurred performing the query.");
+        return;
+    }
+
+    console.log("Query succesfully executed: ", rows);
+});
+
+// Close the connection
+connection.end(function(){
+    // The connection has been closed
 });
