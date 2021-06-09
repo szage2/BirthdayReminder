@@ -12,6 +12,41 @@ app.disable("x-powered-by");
 
 app.get('/', function (req, res) {
   fs.readFile('index.html', function(err, data) {
+
+    // Adding credentials to access database
+    var connection = mysql.createConnection({
+        host     : bdrhost,
+        user     : bdruser,
+        password : bdrpsw,
+        database : 'birthdayreminder'
+    });
+
+    // connect to mysql
+    connection.connect(function(err) {
+        // in case of error
+        if(err){
+            console.log(err.code);
+            console.log(err.fatal);
+        }
+    });
+
+    // Perform a query
+    $query = 'SELECT * from main LIMIT 10';
+
+    connection.query($query, function(err, rows, fields) {
+        if(err){
+            console.log("An error ocurred performing the query.");
+            return;
+        }
+
+        console.log("Query succesfully executed: ", rows);
+    });
+
+    // Close the connection
+    connection.end(function(){
+        // The connection has been closed
+    });
+
     // Send the HTTP header
     // HTTP Status: 200 : OK
     // Content Type: text/plain
@@ -85,40 +120,4 @@ var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
    console.log('Server running at '+host+':'+port);
-});
-
-bdr_var.
-
-// Adding credentials to access database
-var connection = mysql.createConnection({
-    host     : bdrhost,
-    user     : bdruser,
-    password : bdrpsw,
-    database : 'birthdayreminder'
-});
-
-// connect to mysql
-connection.connect(function(err) {
-    // in case of error
-    if(err){
-        console.log(err.code);
-        console.log(err.fatal);
-    }
-});
-
-// Perform a query
-$query = 'SELECT * from main LIMIT 10';
-
-connection.query($query, function(err, rows, fields) {
-    if(err){
-        console.log("An error ocurred performing the query.");
-        return;
-    }
-
-    console.log("Query succesfully executed: ", rows);
-});
-
-// Close the connection
-connection.end(function(){
-    // The connection has been closed
 });
