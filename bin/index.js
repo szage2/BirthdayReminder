@@ -10,10 +10,17 @@ var bdrpsw = process.env.bdr_pass;
 
 app.disable("x-powered-by");
 
+// Get date
+var datetime = new Date();
+    console.log(datetime);
+// Get day of the week
+// Sunday - Saturday : 0 - 6
+var dayoftheweek = datetime.getDate();
+console.log(dayoftheweek);
+
 app.get('/', function (req, res) {
   fs.readFile('index.html', function(err, data) {
 
-    console.log("1");
     // Adding credentials to access database
     var connection = mysql.createConnection({
         host     : bdrhost,
