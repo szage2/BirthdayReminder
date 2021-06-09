@@ -19,6 +19,10 @@ var dayoftheweek = datetime.getDay();
 console.log(dayoftheweek);
 
 app.get('/', function (req, res) {
+
+  // Passing date to html file
+  res.render("index.html", {date: datetime});
+
   fs.readFile('index.html', function(err, data) {
 
     // Adding credentials to access database
