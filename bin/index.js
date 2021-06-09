@@ -13,6 +13,7 @@ app.disable("x-powered-by");
 app.get('/', function (req, res) {
   fs.readFile('index.html', function(err, data) {
 
+    console.log("1");
     // Adding credentials to access database
     var connection = mysql.createConnection({
         host     : bdrhost,
@@ -29,28 +30,30 @@ app.get('/', function (req, res) {
             console.log(err.fatal);
         }
     });
-
+    console.log(2);
     // Perform a query
     $query = 'SELECT * from main LIMIT 10';
 
     connection.query($query, function(err, rows, fields) {
         if(err){
-            console.log("An error ocurred performing the query.");
+            console.log("An error occurred performing the query.");
             return;
         }
 
         console.log("Query succesfully executed: ", rows);
     });
-
+    console.log("3");
     // Close the connection
     connection.end(function(){
         // The connection has been closed
     });
+    console.log("4");
 
     // Send the HTTP header
     // HTTP Status: 200 : OK
     // Content Type: text/plain
     res.writeHead(200, {'Content-Type': 'text/html'});
+    console.log("5");
     res.write(data);
     res.end();
   });
