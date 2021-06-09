@@ -21,7 +21,7 @@ console.log(dayoftheweek);
 app.get('/', function (req, res) {
 
   // Passing date to html file
-  res.render("index.html", {date: datetime});
+  res.render("index", {date: datetime});
 
   fs.readFile('index.html', function(err, data) {
 
