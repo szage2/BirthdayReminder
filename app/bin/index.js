@@ -16,16 +16,13 @@ app.set('view engine', 'ejs');
 
 // Get date
 var datetime = new Date();
-    console.log(datetime);
 // Get day of the week
 // Sunday - Saturday : 0 - 6
 var dayoftheweek = datetime.getDay();
-console.log(dayoftheweek);
 
 app.get('/', function (req, res) {
 
   // Passing date to html file
-  console.log(path.join(__dirname, "public/ejs/index.ejs"));
   res.render(path.join(__dirname, "public/ejs/index.ejs"), {datetime:datetime});
 
   /*fs.readFile('index.html', function(err, data) {
