@@ -1,6 +1,8 @@
 var express = require('express');
 var fs = require("fs");
 const path = require('path');
+let ejs = require('ejs');
+
 var app = express();
 // Get the mysql service
 var mysql = require('mysql');
@@ -23,7 +25,7 @@ console.log(dayoftheweek);
 app.get('/', function (req, res) {
 
   // Passing date to html file
-  res.render("index", {datetime:datetime});
+  res.render(path.join(__dirname,"public/ejs/index.ejs", {datetime:dayoftheweek});
 
   fs.readFile('index.html', function(err, data) {
 
