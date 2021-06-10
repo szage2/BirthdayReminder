@@ -72,18 +72,6 @@ app.get('/', function (req, res) {
   });*/
 });
 
-app.get('/public/style/index.css', function(req, res) {
-  fs.readFile('public/style/index.css', function(err, data) {
-    // Send the HTTP header
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    res.writeHead(200, {'Content-Type': 'text/css'});
-    res.write(data);
-    res.end();
-    console.log("css file is loaded");
-  });
-});
-
 app.get('/events', function (req, res) {
   res.sendFile('events.html', { root: __dirname });
   /*fs.readFile('events.html', function(err, data) {
@@ -94,18 +82,6 @@ app.get('/events', function (req, res) {
     res.write(data);
     res.end();
   });*/
-});
-
-app.get('/public/style/events.css', function(req, res) {
-  fs.readFile('public/style/events.css', function(err, data) {
-    // Send the HTTP header
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    res.writeHead(200, {'Content-Type': 'text/css'});
-    res.write(data);
-    res.end();
-    console.log("css file is loaded");
-  });
 });
 
 app.get('/settings', function (req, res) {
@@ -120,19 +96,7 @@ app.get('/settings', function (req, res) {
   });*/
 });
 
-app.get('/public//style/settings.css', function(req, res) {
-  fs.readFile('public/style/settings.css', function(err, data) {
-    // Send the HTTP header
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    res.writeHead(200, {'Content-Type': 'text/css'});
-    res.write(data);
-    res.end();
-    console.log("css file is loaded");
-  });
-});
-
-app.use('/public', express.static('public'));
+app.use('/public', express.static(path.join(__dirname, 'public')))
 
 var server = app.listen(8081, function () {
    var host = server.address().address
