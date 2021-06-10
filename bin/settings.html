@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Settings</title>
+  <meta charset="utf-8">
+  <!-- Add external CSS file -->
+  <link rel="stylesheet" href="public/style/settings.css">
+  <!-- Responsiveness - mobile-first -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CDN -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- jQuery library - subresource integrity -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+  integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
+  crossorigin="anonymous"></script>
+  <!-- Latest compiled JavaScript - subresource integrity -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+  integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+  crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <!-- Bootstrap Navigation bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Board</a></li>
+        <li><a href="events">Events</a></li>
+        <li class="active"><a href="settings">Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!--Container for page  -->
+  <div class="container">
+    <!--Container for section  -->
+    <div class="message_container">
+      <!-- Rounded switch -->
+      <div class="switch_container">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <p class="section_head">Automatic message</p>
+      <!-- Message area -->
+      <div class="form-group">
+        <label for="email">Message</label>
+        <textarea name="message" class="form-control" tabindex="4"
+            placeholder="Hi [Name], Happy [Event] to you! Joe" required></textarea>
+      </div>
+      <!-- Paragraph -->
+      <p>Scheduled at 9:00 AM on event's day</p>
+    </div>
+    <!-- horizontal divider  -->
+    <hr>
+    <!--Container for section  -->
+    <div class="notification_container">
+      <!-- Rounded switches -->
+      <div class="switch_container">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <p class="section_head">Notifications</p>
+      <div class="switch_container">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <p>Only favorites</p>
+      <p>Scheduled</p>
+      <!-- Rounded switches -->
+      <div class="switch_container">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <p>A day before</p>
+      <!-- Rounded switches -->
+      <div class="switch_container">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <p>Event's day at 8:00 AM</p>
+      <div class="button_container">
+        <button type="button" class="btn btn-default">Save</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
