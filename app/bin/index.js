@@ -25,9 +25,9 @@ console.log(dayoftheweek);
 app.get('/', function (req, res) {
 
   // Passing date to html file
-  res.render(path.join(__dirname,"public/ejs/index.ejs", {datetime:dayoftheweek});
+  ejs.render(path.join(__dirname,"public/ejs/index.ejs", {datetime:dayoftheweek});
 
-  fs.readFile('index.html', function(err, data) {
+  /*fs.readFile('index.html', function(err, data) {
 
     // Adding credentials to access database
     var connection = mysql.createConnection({
@@ -70,7 +70,7 @@ app.get('/', function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     console.log("5");
     res.write(data);
-    res.end();
+    res.end();*/
   });
 });
 
