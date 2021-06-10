@@ -74,29 +74,13 @@ app.get('/', function (req, res) {
 
 app.get('/events', function (req, res) {
   res.sendFile('events.html', { root: __dirname });
-  /*fs.readFile('events.html', function(err, data) {
-    // Send the HTTP header
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data);
-    res.end();
-  });*/
 });
 
 app.get('/settings', function (req, res) {
   res.sendFile('settings.html', { root: __dirname });
-  /*fs.readFile('settings.html', function(err, data) {
-    // Send the HTTP header
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data);
-    res.end();
-  });*/
 });
 
-app.use('/public', express.static(path.join(__dirname, 'public')))
+app.use('/style', express.static(path.join(__dirname, 'public/style')))
 
 var server = app.listen(8081, function () {
    var host = server.address().address
