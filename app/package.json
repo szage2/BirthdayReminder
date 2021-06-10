@@ -11,7 +11,8 @@
     "fs":"0.0.1-security",
     "express": "4.17.1",
     "google-auth-library": "7.1.0",
-    "mysql": "2.18.1"
+    "mysql": "2.18.1",
+    "path": "0.12.7"
 
   }
 }

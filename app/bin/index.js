@@ -1,5 +1,9 @@
 var express = require('express');
 var fs = require("fs");
+const path = require('path');
+
+const router = express.Router();
+
 var app = express();
 // Get the mysql service
 var mysql = require('mysql');
