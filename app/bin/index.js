@@ -72,7 +72,7 @@ app.get('/', function (req, res) {
   });*/
 });
 
-app.get('public/style/index.css', function(req, res) {
+app.get('/public/style/index.css', function(req, res) {
   fs.readFile('public/style/index.css', function(err, data) {
     // Send the HTTP header
     // HTTP Status: 200 : OK
@@ -96,7 +96,7 @@ app.get('/events', function (req, res) {
   });*/
 });
 
-app.get('public/style/events.css', function(req, res) {
+app.get('/public/style/events.css', function(req, res) {
   fs.readFile('public/style/events.css', function(err, data) {
     // Send the HTTP header
     // HTTP Status: 200 : OK
@@ -120,7 +120,7 @@ app.get('/settings', function (req, res) {
   });*/
 });
 
-app.get('public//style/settings.css', function(req, res) {
+app.get('/public//style/settings.css', function(req, res) {
   fs.readFile('public/style/settings.css', function(err, data) {
     // Send the HTTP header
     // HTTP Status: 200 : OK
