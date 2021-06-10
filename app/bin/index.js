@@ -1,14 +1,7 @@
 var express = require('express');
 var fs = require("fs");
 const path = require('path');
-
-const router = express.Router();
-
 var app = express();
-
-app.set("view engine", "pug");
-app.set("views", path.join(__dirname, "views"));
-
 // Get the mysql service
 var mysql = require('mysql');
 // Get environmental variable
@@ -17,6 +10,7 @@ var bdruser = process.env.bdr_user;
 var bdrpsw = process.env.bdr_pass;
 
 app.disable("x-powered-by");
+app.set('view engine', 'ejs');
 
 // Get date
 var datetime = new Date();
