@@ -85,14 +85,15 @@ app.get('/style', function(req, res) {
 });
 
 app.get('/events', function (req, res) {
-  fs.readFile('events.html', function(err, data) {
+  res.sendFile('events.html', { root: __dirname });
+  /*fs.readFile('events.html', function(err, data) {
     // Send the HTTP header
     // HTTP Status: 200 : OK
     // Content Type: text/plain
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data);
     res.end();
-  });
+  });*/
 });
 
 app.get('/style', function(req, res) {
