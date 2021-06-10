@@ -70,8 +70,8 @@ app.get('/', function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     console.log("5");
     res.write(data);
-    res.end();*/
-  });
+    res.end();
+  });*/
 });
 
 app.get('/style', function(req, res) {
