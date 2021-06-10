@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
 
   // Passing date to html file
   console.log(path.join(__dirname, "public/ejs/index.ejs"));
-  ejs.render(path.join(__dirname, "public/ejs/index.ejs"), {datetime:dayoftheweek});
+  ejs.render(path.join(__dirname, "public/ejs/index.ejs"), {datetime:datetime});
 
   /*fs.readFile('index.html', function(err, data) {
 
