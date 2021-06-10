@@ -5,6 +5,10 @@ const path = require('path');
 const router = express.Router();
 
 var app = express();
+
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
+
 // Get the mysql service
 var mysql = require('mysql');
 // Get environmental variable
