@@ -1,6 +1,6 @@
 var express = require('express');
 var fs = require("fs");
-const path = require('path');
+var path = require('path');
 let ejs = require('ejs');
 
 var app = express();
@@ -25,7 +25,7 @@ console.log(dayoftheweek);
 app.get('/', function (req, res) {
 
   // Passing date to html file
-  ejs.render(path.join(__dirname,"public/ejs/index.ejs", {datetime:dayoftheweek}));
+  ejs.render(path.join(__dirname, "public/ejs/index.ejs"), {datetime:dayoftheweek});
 
   /*fs.readFile('index.html', function(err, data) {
 
