@@ -21,55 +21,44 @@ var datetime = new Date();
 var dayoftheweek = datetime.getDay();
 
 app.get('/', function (req, res) {
+  // Adding credentials to access database
+  var connection = mysql.createConnection({
+      host     : bdrhost,
+      user     : bdruser,
+      password : bdrpsw,
+      database : 'birthdayreminder'
+  });
 
-  // Passing date to html file
-  res.render(path.join(__dirname, "public/ejs/index.ejs"), {datetime:datetime});
+  // connect to mysql
+  connection.connect(function(err) {
+      // in case of error
+      if(err){
+          console.log(err.code);
+          console.log(err.fatal);
+      }
+  });
 
-  /*fs.readFile('index.html', function(err, data) {
+  // Perform a query
+  $query = 'SELECT * from main LIMIT 10';
 
-    // Adding credentials to access database
-    var connection = mysql.createConnection({
-        host     : bdrhost,
-        user     : bdruser,
-        password : bdrpsw,
-        database : 'birthdayreminder'
-    });
+  connection.query($query, function(err, rows, fields) {
+      if(err){
+          console.log("An error occurred performing the query.");
+          return;
+      }
 
-    // connect to mysql
-    connection.connect(function(err) {
-        // in case of error
-        if(err){
-            console.log(err.code);
-            console.log(err.fatal);
-        }
-    });
-    console.log(2);
-    // Perform a query
-    $query = 'SELECT * from main LIMIT 10';
+      // DB Connection works
+      console.log("The database connection works: " + rows);
 
-    connection.query($query, function(err, rows, fields) {
-        if(err){
-            console.log("An error occurred performing the query.");
-            return;
-        }
+  });
+  // Close the connection
+  connection.end(function(){
+  // The connection has been closed
+  });
 
-        console.log("Query succesfully executed: ", rows);
-    });
-    console.log("3");
-    // Close the connection
-    connection.end(function(){
-        // The connection has been closed
-    });
-    console.log("4");
+  // Passing datetime to html file
+  res.render(path.join(__dirname, "public/ejs/index.ejs"), {dbData:datetime});
 
-    // Send the HTTP header
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    console.log("5");
-    res.write(data);
-    res.end();
-  });*/
 });
 
 app.get('/events', function (req, res) {
@@ -80,7 +69,7 @@ app.get('/settings', function (req, res) {
   res.sendFile('settings.html', { root: __dirname });
 });
 
-app.use('/style', express.static(path.join(__dirname, 'public/style')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 var server = app.listen(8081, function () {
    var host = server.address().address
